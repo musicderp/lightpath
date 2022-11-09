@@ -38,7 +38,7 @@ services:
     volumes:
       - ./analytics/clickhouse_schema.sql:/docker-entrypoint-initdb.d/schema.sql
   vector:
-    image: timberio/vector:latest-alpine
+    image: timberio/vector:nightly-2021-08-26-alpine
     container_name: lightpath-vector
     ports:
       - "1337:1337"
