@@ -9,9 +9,9 @@ services:
       - "443:443"
       - "2841:2841"
     environment:
-      SERVER_ID: 'NY-1'
-      SERVER_COLO: 'US'
-      SERVER_NAME: 'edge-ny-1.lightpath-cdn.net'
+      - SERVER_ID:'NY-1'
+      - SERVER_COLO:'US'
+      - SERVER_NAME:'edge-ny-1.lightpath-cdn.net'
     volumes:
       - ./nginx/nginx.conf:/usr/local/openresty/nginx/conf/nginx.conf
       - ./nginx/src:/usr/local/openresty/lualib/lightpath
@@ -23,8 +23,9 @@ services:
     ports:
       - "5432:5432"
     environment:
-      POSTGRES_DB: lightpath
-      POSTGRES_PASSWORD: password
+      - POSTGRES_DB=lightpath
+      - POSTGRES_USER=lightpath
+      - POSTGRES_PASSWORD=password
   redis:
     image: redis
     container_name: lightpath-redis
